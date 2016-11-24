@@ -1,8 +1,15 @@
 class MessagesController < ApplicationController
 	before_action :find_message, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!
+
 
 	def index
-		@messages = Message.all.order("created_at DESC")
+		if params[:category].blank?
+			@messages = Message.all.order("created_at DESC")
+		else 
+			@category_id = Category.find_by(name: params[:category]).id
+			@messages 	 = Message.where(category_id: @category_id).order("Created_at DESC")
+		end
 	end
 
 	def show
@@ -39,7 +46,7 @@ class MessagesController < ApplicationController
 
 	private
 		def message_params
-			params.require(:message).permit(:title, :description)
+			params.require(:message).permit(:title, :description, :category_id )
 		end
 
 		def find_message

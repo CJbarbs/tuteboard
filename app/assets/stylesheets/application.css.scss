@@ -17,6 +17,7 @@
 @import url(http://fonts.googleapis.com/css?family=Playfair+Display|Muli:300,400);
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'animate.css';
 
 /* General styles */
 
@@ -71,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: #fff;
 
 	.navbar-nav > li > a {
-		color: #222;
+		color: purple;
 	}
 
 	.navbar-link {

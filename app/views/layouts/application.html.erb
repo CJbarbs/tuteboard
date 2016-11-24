@@ -11,14 +11,19 @@
 	<nav class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
-				<%= link_to "Message Board", root_path, class: "navbar-brand" %>
+				<%= link_to "Tute Connect", root_path, class: "navbar-brand" %>
 			</div>
 			<ul class="navbar-nav nav">
-				<li><%= link_to "Sign Up", new_user_registration_path %></li>
 				<% if user_signed_in? %>
 					<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+
+					<% Category.all.each do |category| %> 
+					<li><%=link_to category.name, messages_path(category: category.name)%></li>
+					<% end %>
+				
 				<% else %>	
 					<li><%= link_to "Log In", new_user_session_path %></li>
+					<li><%= link_to "Sign Up", new_user_registration_path %></li>
 				<% end %>
 			</ul>
 			<% if user_signed_in? %>
@@ -30,7 +35,7 @@
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
 
-	<div class="container">
+	<div class="container animated fadeIn">
 		<%= yield %>
 	</div>
 
