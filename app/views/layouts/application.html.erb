@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MessageBoard</title>
+  <title>Tute Connect</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -27,7 +27,7 @@
 				<% end %>
 			</ul>
 			<% if user_signed_in? %>
-				<p><%= link_to "New Message", new_message_path, class: "navbar-text navbar-link navbar-right" %></p>
+				<p><%= link_to "New", new_message_path, class: "navbar-text navbar-link navbar-right" %></p>
 			<% end %>
 		</div>
 	</nav>
