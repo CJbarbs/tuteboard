@@ -5,3 +5,4 @@ class MessageTest < ActiveSupport::TestCase
   #   assert true
   # end
 end
+ 

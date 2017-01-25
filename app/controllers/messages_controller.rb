@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
 			@category_id = Category.find_by(name: params[:category]).id
 			@messages 	 = Message.where(category_id: @category_id).order("Created_at DESC")
 		end
-	end
+	end 
 
 	def show
 	end

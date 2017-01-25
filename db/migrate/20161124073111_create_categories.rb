@@ -7,3 +7,4 @@ class CreateCategories < ActiveRecord::Migration
     end
   end
 end
+ 
